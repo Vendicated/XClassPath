@@ -6,6 +6,8 @@ This allows you to write (or [autogenerate](#automatically-generating-stubs)!) s
 
 ## Getting started
 
+As this library uses hidden api, a hidden api bypass may be required. But any modern Xposed implementation should already include this.
+
 This library is not yet published to Maven. I will do that soon...
 
 ## Usage
@@ -34,7 +36,7 @@ Just grab the [latest release](https://github.com/Aliucord/dex2jar/releases/late
 ```shell
 java -jar dex2jar.jar --no-code --debug-info YOURAPK.apk --output stubs.jar
 ```
-Now add that jar as dependency and you're good to go!
+Now add that jar as compileOnly dependency and you're good to go!
 
 Please note that while this jar does not contain any code, only implementation-less interfaces, pushing it to your repo
 may be Copyright infringement, so you should probably gitignore it.
