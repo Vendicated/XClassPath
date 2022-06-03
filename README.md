@@ -8,7 +8,16 @@ This allows you to write (or [autogenerate](#automatically-generating-stubs)!) s
 
 As this library uses hidden api, a hidden api bypass may be required. But any modern Xposed implementation should already include this.
 
-This library is not yet published to Maven. I will do that soon...
+```gradle
+repositories {
+    maven("https://maven.aliucord.com/snapshots")
+}
+
+dependencies {
+    // or change main-SNAPSHOT to short commit hash to target a specific commit
+    implementation "dev.vendicated.xlcasspath:XClassPath:main-SNAPSHOT"
+}
+```
 
 ## Usage
 

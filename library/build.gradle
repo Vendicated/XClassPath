@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
 }
 
 android {
@@ -24,4 +25,34 @@ android {
 
 dependencies {
     compileOnly 'de.robv.android.xposed:api:82'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            register(project.name, MavenPublication::class.java) {
+                group = 'dev.vendicated.xclasspath'
+                artifactId = "XClassPath"
+
+                from(components["release"])
+            }
+
+            repositories {
+                val username = System.getenv("MAVEN_USERNAME")
+                val password = System.getenv("MAVEN_PASSWORD")
+
+                if (username != null && password != null) {
+                    maven {
+                        credentials {
+                            this.username = username
+                            this.password = password
+                        }
+                        setUrl("https://maven.aliucord.com/snapshots")
+                    }
+                } else {
+                    mavenLocal()
+                }
+            }
+        }
+    }
 }
