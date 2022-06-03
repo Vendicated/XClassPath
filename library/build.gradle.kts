@@ -1,37 +1,37 @@
 plugins {
-    id 'com.android.library'
-    id 'maven-publish'
+    id("com.android.library")
+    id("maven-publish")
 }
 
 android {
-    namespace 'dev.vendicated.xclasspath'
-    compileSdk 32
+    namespace = "dev.vendicated.xclasspath"
+    compileSdk = 32
 
     defaultConfig {
-        minSdk 21
-        targetSdk 32
+        minSdk = 21
+        targetSdk = 32
     }
 
     buildTypes {
         release {
-            minifyEnabled false
         }
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 }
 
 dependencies {
-    compileOnly 'de.robv.android.xposed:api:82'
+    compileOnly("de.robv.android.xposed:api:82")
 }
 
 afterEvaluate {
     publishing {
         publications {
             register(project.name, MavenPublication::class.java) {
-                group = 'dev.vendicated.xclasspath'
+                group = "dev.vendicated.xclasspath"
                 artifactId = "XClassPath"
 
                 from(components["release"])
