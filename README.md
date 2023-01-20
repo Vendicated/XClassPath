@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
     // or change main-SNAPSHOT to short commit hash to target a specific commit
-    implementation "dev.vendicated.xlcasspath:XClassPath:main-SNAPSHOT"
+    implementation "dev.vendicated.xclasspath:XClassPath:main-SNAPSHOT"
 }
 ```
 
